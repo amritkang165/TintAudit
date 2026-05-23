@@ -72,7 +72,17 @@ struct ColorPickerPanel: View {
             }
 
             if hexError {
-                Text("Invalid hex value")
+                let message: String = {
+                    let trimmed = hexInput.trimmingCharacters(in: .whitespacesAndNewlines)
+                    if trimmed.isEmpty { return "Hex value cannot be empty" }
+                    let stripped = trimmed.hasPrefix("#") ? String(trimmed.dropFirst()) : trimmed
+                    if stripped.count != 6 { return "Hex must be exactly 6 characters (e.g. #2D7FF9)" }
+                    if stripped.range(of: "^[0-9A-Fa-f]{6}$", options: .regularExpression) == nil {
+                        return "Hex contains invalid characters (use 0-9, A-F)"
+                    }
+                    return "Invalid hex value"
+                }()
+                Text(message)
                     .foregroundColor(.red)
                     .font(.caption)
             }
