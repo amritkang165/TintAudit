@@ -40,6 +40,12 @@ struct ColorBlindnessSimulator {
             nb = 0.000 * r + 0.475 * g + 0.525 * b
         }
 
-        return AppColor(r: nr * 255, g: ng * 255, b: nb * 255)
+        // Clamp simulated values to valid [0, 1] range before converting to 0-255
+        let clamped = (
+            r: max(0, min(1, nr)),
+            g: max(0, min(1, ng)),
+            b: max(0, min(1, nb))
+        )
+        return AppColor(r: clamped.r * 255, g: clamped.g * 255, b: clamped.b * 255)
     }
 }
