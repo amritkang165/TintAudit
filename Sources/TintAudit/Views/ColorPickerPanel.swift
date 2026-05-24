@@ -1,10 +1,13 @@
 import TokamakShim
 
+private let maxPaletteSize = 20
+
 struct ColorPickerPanel: View {
     @Binding var selectedColor: AppColor
     @Binding var palette: [AppColor]
     @Binding var hexInput: String
     @Binding var hexError: Bool
+    @State private var paletteFeedback: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -105,10 +108,27 @@ struct ColorPickerPanel: View {
                 Spacer()
 
                 Button("Add to Palette") {
-                    palette.append(selectedColor)
+                    if palette.contains(selectedColor) {
+                        paletteFeedback = "Already in palette"
+                    } else if palette.count >= maxPaletteSize {
+                        paletteFeedback = "Palette full (max \(maxPaletteSize))"
+                    } else {
+                        palette.append(selectedColor)
+                        paletteFeedback = "Added!"
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        paletteFeedback = nil
+                    }
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.small)
+            }
+
+            if let feedback = paletteFeedback {
+                Text(feedback)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .transition(.opacity)
             }
         }
     }
