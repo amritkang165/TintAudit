@@ -2,6 +2,7 @@ import TokamakShim
 
 struct PaletteView: View {
     let palette: [AppColor]
+    let selectedColor: AppColor?
     let onSelect: (AppColor) -> Void
 
     var body: some View {
@@ -17,6 +18,7 @@ struct PaletteView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(Array(palette.enumerated()), id: \.offset) { _, color in
+                            let isActive = color == selectedColor
                             RoundedRectangle(cornerRadius: 6)
                                 .fill(Color(red: color.r / 255,
                                             green: color.g / 255,
@@ -24,7 +26,8 @@ struct PaletteView: View {
                                 .frame(width: 36, height: 36)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 6)
-                                        .stroke(Color.gray.opacity(0.3))
+                                        .stroke(isActive ? Color.accentColor : Color.gray.opacity(0.3),
+                                                lineWidth: isActive ? 3 : 1)
                                 )
                                 .onTapGesture { onSelect(color) }
                         }

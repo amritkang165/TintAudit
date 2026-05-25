@@ -69,7 +69,7 @@ struct ContentView: View {
 
                 Divider()
 
-                PaletteView(palette: palette) { color in
+                PaletteView(palette: palette, selectedColor: selectedColor) { color in
                     selectedColor = color
                     hexInput = color.hex
                     hexError = false
