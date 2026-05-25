@@ -1,11 +1,14 @@
 import TokamakShim
 
+// Background modes for the preview pane
 enum BackgroundMode: String, CaseIterable {
     case light = "Light"
     case dark = "Dark"
     case custom = "Custom"
 }
 
+// Root layout: two-column design with color controls on the left
+// and live preview, contrast report, and export tools on the right.
 struct ContentView: View {
     @State private var selectedColor = AppColor(r: 45, g: 127, b: 249)
     @State private var palette: [AppColor] = []
