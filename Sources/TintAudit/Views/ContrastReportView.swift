@@ -13,7 +13,7 @@ struct ContrastReportView: View {
                 .foregroundColor(gradeColor)
 
             HStack(spacing: 8) {
-                GradeBadge(grade: .aaaLarge, passed: result.ratio >= 3.0)
+                GradeBadge(grade: .aaLarge, passed: result.ratio >= 3.0)
                 GradeBadge(grade: .aa, passed: result.ratio >= 4.5)
                 GradeBadge(grade: .aaa, passed: result.ratio >= 7.0)
             }

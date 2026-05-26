@@ -87,21 +87,25 @@
 ## 🚀 Build & Run
 
 ```bash
-# 1. Install Carton
-brew install swiftwasm/tap/carton
+# Prerequisites: Install swiftly + a swift.org toolchain
+brew install swiftly && swiftly init && swiftly install 6.3
 
-# 2. Run locally
+# 1. Install the WebAssembly Swift SDK
+swift sdk install https://github.com/swiftwasm/swift/releases/download/swift-wasm-6.3-RELEASE/swift-wasm-6.3-RELEASE-wasm32-unknown-wasip1.artifactbundle.zip --checksum 6704d137e532f1ac31eafedd80658f9ee61239f2b6291216a02da32361ea9dcb
+
+# 2. Build for WebAssembly
 cd TintAudit
-carton dev
+swift build --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1
+
+# 3. Serve (use any static HTTP server)
+python3 -m http.server 8080
 ```
 > 🌐 Opens at **http://localhost:8080**
 
 ```bash
-# 3. Build for production
-carton bundle
-
-# 4. Deploy
-# Upload the Bundle/ folder to Vercel, Netlify, GitHub Pages...
+# 4. Build for production & deploy
+swift build --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1 -c release
+# Upload .build/wasm32-unknown-wasip1/release/ to any static host
 ```
 
 <br>

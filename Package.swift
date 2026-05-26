@@ -3,13 +3,13 @@ import PackageDescription
 
 let package = Package(
     name: "TintAudit",
-    platforms: [.macOS(.v10_15)],
+    platforms: [.macOS(.v13)],
     products: [
         .executable(name: "TintAudit", targets: ["TintAudit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/TokamakUI/Tokamak.git", from: "0.12.0"),
-        .package(url: "https://github.com/swiftwasm/JavaScriptKit.git", from: "0.19.0"),
+        .package(url: "https://github.com/TokamakUI/Tokamak.git", exact: "0.11.1"),
+        .package(url: "https://github.com/swiftwasm/JavaScriptKit.git", exact: "0.19.0"),
     ],
     targets: [
         .executableTarget(
