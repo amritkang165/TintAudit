@@ -8,14 +8,12 @@ let package = Package(
         .executable(name: "TintAudit", targets: ["TintAudit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/TokamakUI/Tokamak.git", exact: "0.11.1"),
-        .package(url: "https://github.com/swiftwasm/JavaScriptKit.git", exact: "0.19.0"),
+        .package(url: "https://github.com/swiftwasm/JavaScriptKit.git", exact: "0.56.1"),
     ],
     targets: [
         .executableTarget(
             name: "TintAudit",
             dependencies: [
-                .product(name: "TokamakShim", package: "Tokamak"),
                 .product(name: "JavaScriptKit", package: "JavaScriptKit"),
             ]
         )
