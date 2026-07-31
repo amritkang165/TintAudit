@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Swift-5.9+-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.9+">
-  <img src="https://img.shields.io/badge/Tokamak-0.12-5B5BFF?style=flat-square" alt="Tokamak 0.12">
-  <img src="https://img.shields.io/badge/JavaScriptKit-0.19-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScriptKit 0.19">
+  <img src="https://img.shields.io/badge/Swift-6.3-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 6.3">
+  <img src="https://img.shields.io/badge/SwiftWASM-wasm32-success?style=flat-square" alt="SwiftWASM">
+  <img src="https://img.shields.io/badge/JavaScriptKit-0.56.1-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScriptKit 0.56.1">
   <img src="https://img.shields.io/badge/WCAG_2.1-AA%20%7C%20AAA-success?style=flat-square" alt="WCAG 2.1">
   <img src="https://img.shields.io/badge/license-MIT-ff69b4?style=flat-square" alt="MIT">
 </p>
@@ -11,8 +11,8 @@
 </h1>
 
 <p align="center">
-  <b>A browser-based accessibility color studio</b><br>
-  <i>Pick · Preview · Simulate · Export — all in your browser, no server needed.</i>
+  <b>A browser-based palette accessibility auditor</b><br>
+  <i>Paste a palette · Check contrast · Find fixes · Simulate color blindness — all in your browser, no server needed.</i>
 </p>
 
 <br>
@@ -25,50 +25,67 @@
 
 <table>
   <tr>
-    <td width="50%" align="center">
-      <h3>🎯 Live Contrast</h3>
-      <p>Real-time WCAG 2.1 ratio as you drag sliders</p>
+    <td width="33%" align="center">
+      <h3>📋 Paste a Palette</h3>
+      <p>Drop in hex colors (one per line or comma-separated) with live swatch preview as you type</p>
     </td>
-    <td width="50%" align="center">
-      <h3>👁️ Blindness Sims</h3>
-      <p>Protanopia · Deuteranopia · Tritanopia</p>
+    <td width="33%" align="center">
+      <h3>🧭 Palette Health</h3>
+      <p>Instant A–F grade plus pass / warn / fail counts across every color pair</p>
+    </td>
+    <td width="33%" align="center">
+      <h3>👫 Pairwise Contrast</h3>
+      <p>Worst-first list with live "Aa" previews, exact ratios, and AA/AAA badges</p>
     </td>
   </tr>
   <tr>
-    <td width="50%" align="center">
-      <h3>📋 Export Code</h3>
-      <p>SwiftUI · CSS · Xcode Asset Catalog</p>
+    <td width="33%" align="center">
+      <h3>🛠️ Nearest Fix</h3>
+      <p>One-click nearest accessible alternative for any failing pair, with a Use button to apply it</p>
     </td>
-    <td width="50%" align="center">
-      <h3>🎨 Palette</h3>
-      <p>Save colors, compare, reuse instantly</p>
+    <td width="33%" align="center">
+      <h3>👁️ Blindness Sims</h3>
+      <p>Protanopia · Deuteranopia · Tritanopia with before/after swatches</p>
+    </td>
+    <td width="33%" align="center">
+      <h3>🎨 Palette Manager</h3>
+      <p>Add single colors, delete chips, clear all — the whole report re-renders instantly</p>
     </td>
   </tr>
 </table>
 
 <br>
 
-## 🌈 Quick Preview
+## 🖥️ Quick Preview
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  🎨 TintAudit                                        │
-│                                                     │
-│  ┌──────────────┐  ┌──────────────────────────────┐ │
-│  │ R ═══════●══ │  │  Sample Heading Text          │ │
-│  │ G ═══●══════ │  │  This is sample body text...  │ │
-│  │ B ═════●════ │  │                              │ │
-│  │ [#2D7FF9]    │  │  Contrast Ratio              │ │
-│  │ 🎨 Add       │  │  ┌──────┬──────┬──────┐      │ │
-│  │ Saved █ █ █  │  │  │ AA L │ AA ✅│ AAA ❌│      │ │
-│  │ Bg: L D C    │  │  └──────┴──────┴──────┘      │ │
-│  └──────────────┘  │  Normal ▸ Proto ▸ Deu ▸ Tri   │ │
-│                    │  ┌────────────────────────────┐│ │
-│                    │  │ Color(red: 0.176, ...)    ││ │
-│                    │  │ [Copy]                     ││ │
-│                    │  └────────────────────────────┘│ │
-│                    └──────────────────────────────┘ │
-└─────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│  ◼ TintAudit   [WCAG]                                   │
+│  Paste your palette, get instant contrast ratios and    │
+│  color blindness simulations.                           │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  Enter your colors                               │   │
+│  │  ┌────────────────────────────────────────────┐  │   │
+│  │  │ #2D7FF9 #FF3B30 #34C759 #8B5CF6 #F59E0B  │  │   │
+│  │  └────────────────────────────────────────────┘  │   │
+│  │  [Try an example]  [ Analyze palette ]            │   │
+│  └──────────────────────────────────────────────────┘   │
+│  Palette  (8)   [+ #2D7FF9]                    [Clear] │
+│  ████  #2D7FF9 ✕   ████  #FF3B30 ✕   ████  #34C759 ✕  │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  🧭 A  Palette Health — 45% of 45 pairs pass      │   │
+│  │  7 Pass AA | 10 AA Large | 28 Fail | 45 pairs     │   │
+│  ├──────────────────────────────────────────────────┤   │
+│  │  Pairwise Contrast                                │   │
+│  │  [Aa] #FF3B30 → #2D7FF9   1.15  Fail AA ✗ AAA ✗   │   │
+│  │  ┌──────── Fix — Nearest accessible fg ───────┐   │   │
+│  │  │ █ #FF3B30 → █ #B91C1C  4.50  [Use]         │   │   │
+│  │  └────────────────────────────────────────────┘   │   │
+│  ├──────────────────────────────────────────────────┤   │
+│  │  Color Blindness Simulation                       │   │
+│  │  Protanopia: [Aa]→[Aa] [Aa]→[Aa]  ·  Deutero…     │   │
+│  └──────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
 ```
 
 <br>
@@ -77,36 +94,32 @@
 
 | | |
 |---|---|
-| <img src="https://img.shields.io/badge/-Swift-F05138?style=flat-square&logo=swift&logoColor=white" width="90"> | **Language** — Swift 5.9+ |
-| <img src="https://img.shields.io/badge/-Tokamak-5B5BFF?style=flat-square" width="90"> | **UI Framework** — SwiftUI for WebAssembly |
-| <img src="https://img.shields.io/badge/-JavaScriptKit-F7DF1E?style=flat-square&logo=javascript&logoColor=black" width="90"> | **Browser Bridge** — Clipboard access |
-| <img src="https://img.shields.io/badge/-Carton-6C5CE7?style=flat-square" width="90"> | **Build Tool** — SwiftWasm bundler |
+| <img src="https://img.shields.io/badge/-Swift-6.3-F05138?style=flat-square&logo=swift&logoColor=white" width="120"> | **Language** — Swift 6.3 |
+| <img src="https://img.shields.io/badge/-SwiftWASM-6.3-6C5CE7?style=flat-square" width="120"> | **Runtime** — Swift compiled to `wasm32-unknown-wasip1` |
+| <img src="https://img.shields.io/badge/-JavaScriptKit-0.56.1-F7DF1E?style=flat-square&logo=javascript&logoColor=black" width="120"> | **Browser Bridge** — DOM manipulation from Swift |
+| <img src="https://img.shields.io/badge/-SwiftPM-5.9-FAC863?style=flat-square" width="120"> | **Build Tool** — `swift package ... js` (bundling plugin) |
 
 <br>
 
 ## 🚀 Build & Run
 
 ```bash
-# Prerequisites: Install swiftly + a swift.org toolchain
+# 0. Prerequisites: install swiftly + a Swift toolchain
 brew install swiftly && swiftly init && swiftly install 6.3
 
 # 1. Install the WebAssembly Swift SDK
 swift sdk install https://github.com/swiftwasm/swift/releases/download/swift-wasm-6.3-RELEASE/swift-wasm-6.3-RELEASE-wasm32-unknown-wasip1.artifactbundle.zip --checksum 6704d137e532f1ac31eafedd80658f9ee61239f2b6291216a02da32361ea9dcb
 
-# 2. Build for WebAssembly
+# 2. Build the browser bundle (--use-cdn serves the WASM runtime from a CDN)
 cd TintAudit
-swift build --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1
+swift package --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1 js --use-cdn
 
-# 3. Serve (use any static HTTP server)
-python3 -m http.server 8080
+# 3. Serve with cache disabled (recommended — browsers love caching the wasm)
+python3 serve.py
 ```
 > 🌐 Opens at **http://localhost:8080**
-
-```bash
-# 4. Build for production & deploy
-swift build --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1 -c release
-# Upload .build/wasm32-unknown-wasip1/release/ to any static host
-```
+>
+> Any static HTTP server works (`python3 -m http.server 8080`), but `serve.py` sends `Cache-Control: no-cache` so you always get the freshest build during development.
 
 <br>
 
@@ -114,26 +127,20 @@ swift build --swift-sdk 6.3-RELEASE-wasm32-unknown-wasip1 -c release
 
 ```
 TintAudit/
-├── 📦 Package.swift                  # Dependencies: Tokamak + JavaScriptKit
+├── 📦 Package.swift                  # Dependency: JavaScriptKit 0.56.1
+├── 🖥️ index.html                    # Module loader (entry for the browser)
+├── ⚙️ serve.py                      # Cache-disabled dev server
 └── Sources/
     └── TintAudit/
-        ├── 🚀 TintAuditApp.swift     # @main entry point
+        ├── 🚀 BrowserApp.swift      # @main entry point + full DOM app
         ├── 📐 Models/
         │   ├── AppColor.swift        # sRGB · hex · normalized
         │   ├── ContrastResult.swift  # Ratio · grade · thresholds
         │   └── ColorBlindnessType.swift
-        ├── 🧮 Logic/
-        │   ├── ContrastCalculator.swift      # WCAG 2.1 luminance
-        │   ├── ColorBlindnessSimulator.swift  # Matrix transforms
-        │   └── CodeExporter.swift            # SwiftUI · CSS · Xcode
-        └── 🖼️ Views/
-            ├── ContentView.swift            # Root two-column layout
-            ├── ColorPickerPanel.swift        # RGB sliders · hex input
-            ├── PreviewPane.swift             # Text preview card
-            ├── ContrastReportView.swift      # Ratio · AA · AAA badges
-            ├── ColorBlindnessToggle.swift    # Simulation picker
-            ├── PaletteView.swift             # Saved colors row
-            └── CodeExportView.swift          # Tabbed code · copy
+        └── 🧮 Logic/
+            ├── ContrastCalculator.swift      # WCAG 2.1 luminance & grades
+            ├── ColorBlindnessSimulator.swift # Matrix transforms for CVD
+            └── ColorSuggestor.swift          # Nearest accessible color fixes
 ```
 
 <br>
@@ -149,6 +156,17 @@ TintAudit/
 
 <br>
 
+## 🛠️ How the Nearest Fix Works
+
+For every pair that fails AA normal text (ratio < 4.5), TintAudit:
+
+1. Converts the foreground color to **HSL** — keeping hue and saturation identical.
+2. Sweeps **lightness** up and down (binary search) toward black or white.
+3. Returns the closest lightness that hits ≥ 4.5:1 — the smallest visual change that passes.
+4. Shows it inline as `#ORIG → #SUGGESTION` with the new ratio and a **Use** button to swap it into your palette and re-run the whole report.
+
+<br>
+
 ## 👁️ Color Blindness Simulations
 
 | Type | Affected Cone | Matrix Applied |
@@ -156,6 +174,8 @@ TintAudit/
 | **Protanopia** | L-cone (red) | Red → green collapse |
 | **Deuteranopia** | M-cone (green) | Green → red collapse |
 | **Tritanopia** | S-cone (blue) | Blue → green collapse |
+
+Each palette color is shown as an `Aa` swatch **before** and **after** simulation, side by side.
 
 <br>
 
