@@ -58,35 +58,9 @@
 
 ## 🖥️ Quick Preview
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  ◼ TintAudit   [WCAG]                                   │
-│  Paste your palette, get instant contrast ratios and    │
-│  color blindness simulations.                           │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │  Enter your colors                               │   │
-│  │  ┌────────────────────────────────────────────┐  │   │
-│  │  │ #2D7FF9 #FF3B30 #34C759 #8B5CF6 #F59E0B  │  │   │
-│  │  └────────────────────────────────────────────┘  │   │
-│  │  [Try an example]  [ Analyze palette ]            │   │
-│  └──────────────────────────────────────────────────┘   │
-│  Palette  (8)   [+ #2D7FF9]                    [Clear] │
-│  ████  #2D7FF9 ✕   ████  #FF3B30 ✕   ████  #34C759 ✕  │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │  🧭 A  Palette Health — 45% of 45 pairs pass      │   │
-│  │  7 Pass AA | 10 AA Large | 28 Fail | 45 pairs     │   │
-│  ├──────────────────────────────────────────────────┤   │
-│  │  Pairwise Contrast                                │   │
-│  │  [Aa] #FF3B30 → #2D7FF9   1.15  Fail AA ✗ AAA ✗   │   │
-│  │  ┌──────── Fix — Nearest accessible fg ───────┐   │   │
-│  │  │ █ #FF3B30 → █ #B91C1C  4.50  [Use]         │   │   │
-│  │  └────────────────────────────────────────────┘   │   │
-│  ├──────────────────────────────────────────────────┤   │
-│  │  Color Blindness Simulation                       │   │
-│  │  Protanopia: [Aa]→[Aa] [Aa]→[Aa]  ·  Deutero…     │   │
-│  └──────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────┘
-```
+<p align="center">
+  <img src="assets/preview.png" alt="TintAudit UI — paste palette, Palette Health grade, worst-first pairwise contrast with nearest-fix rows, and color blindness simulation" width="860">
+</p>
 
 <br>
 

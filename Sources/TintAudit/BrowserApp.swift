@@ -16,6 +16,9 @@ final class BrowserApp {
         build()
         wireEvents()
         sync()
+        if let qs = JSObject.global.location.object?.search.string, qs.contains("demo") {
+            loadExample()
+        }
     }
 
     func html() -> String {"""
